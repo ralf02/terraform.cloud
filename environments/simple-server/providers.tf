@@ -4,10 +4,6 @@ terraform {
       source = "hashicorp/aws"
       version = ">=6.1.0, <6.3.0, !=6.0.0"
     }
-    random = {
-      source = "hashicorp/random"
-      version = "3.7.2"
-    }
   }
   required_version = "~>1.14.0"
 }
@@ -15,6 +11,11 @@ terraform {
 provider "aws" {
   region = "us-east-2"
   default_tags {
-    tags = var.myTagsGeneric
+    tags = merge(
+      module.simple_server_ec2.tags,
+      {
+        Environment = "dev"
+      }
+    )
   }
 }
