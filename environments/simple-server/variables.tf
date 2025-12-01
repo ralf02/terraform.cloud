@@ -35,3 +35,9 @@ variable "key_name" {
   type        = string
   default     = "MyKeys"
 }
+
+variable "availability_zones" {
+  description = "List of availability zones"
+  type        = list(string)
+  default     = ["us-east-2a"]
+}
