@@ -1,5 +1,6 @@
 # Security Group
 resource "aws_security_group" "simple_server_sg" {
+  vpc_id      = var.vpc_id
 
   # Basic SSH access
   ingress {
