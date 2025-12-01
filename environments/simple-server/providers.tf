@@ -10,12 +10,4 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
-  default_tags {
-    tags = merge(
-      module.simple_server_ec2.tags,
-      {
-        Environment = "dev"
-      }
-    )
-  }
 }
