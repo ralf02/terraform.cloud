@@ -19,14 +19,3 @@ variable "ec2_specs" {
   description = "EC2 specs"
   type = map(string)
 }
-
-
-variable "access_key" {
-  description = "Access key"
-  type = string
-}
-
-variable "secret_key" {
-  description = "Secret key"
-  type = string
-}
