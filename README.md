@@ -2,9 +2,9 @@
 
 Este proyecto tiene como objetivo servir como un EC2 para pruebas usando Terraform Cloud. Despliega una infraestructura básica en Amazon Web Services (AWS) que incluye:
 
-
-- **Instancia EC2**: Una instancia de cómputo EC2.
-- **VPC**: Una instancia de cómputo EC2.
+*   **VPC (Virtual Private Cloud)**: Una red virtual aislada donde se despliegan los recursos. Incluye subredes públicas y una Internet Gateway para conectividad.
+*   **Security Groups**: Grupos de seguridad que actúan como firewalls virtuales, controlando el tráfico de entrada y salida de las instancias EC2.
+*   **Instancia EC2**: Una instancia de cómputo EC2 que reside dentro de la VPC.
 
 ## Requisitos Previos
 
@@ -42,14 +42,17 @@ Para destruir los recursos creados por este proyecto para el entorno `simple-ser
 
 Aquí se listan los archivos principales:
 
-*   **`environments/simple-server/main.tf`**: Punto de entrada principal para el entorno `simple-server`, donde se instancian los módulos.
-*   **`environments/simple-server/providers.tf`**: Configuración del proveedor de AWS para el entorno `simple-server`.
-*   **`modules/ec2/data.tf`**: Define la fuente de datos para el par de claves EC2.
-*   **`modules/ec2/main.tf`**: Define los recursos EC2 del módulo.
-*   **`modules/ec2/outputs.tf`**: Define las salidas del módulo EC2.
-*   **`modules/ec2/variables.tf`**: Define las variables de entrada para el módulo EC2.
-*   **`modules/security_groups/main.tf`**: Define los recursos de Security Groups del módulo.
-*   **`modules/security_groups/outputs.tf`**: Define las salidas del módulo Security Groups.
-*   **`modules/vpc/main.tf`**: Define los recursos de VPC del módulo.
-*   **`modules/vpc/variables.tf`**: Define las variables de entrada para el módulo VPC.
-*   **`README.md`**: Este archivo, que describe el proyecto y su estructura.
+*   **`environments/`**: Contiene configuraciones específicas para diferentes entornos.
+    *   **`environments/simple-server/main.tf`**: Punto de entrada principal para el entorno `simple-server`, donde se instancian los módulos.
+    *   **`environments/simple-server/providers.tf`**: Configuración del proveedor de AWS para el entorno `simple-server`.
+    *   **`environments/simple-server/variables.tf`**: Define las variables de entrada para el entorno `simple-server`.
+*   **`modules/`**: Contiene bloques de infraestructura reutilizables y encapsulados (módulos).
+    *   **`modules/ec2/main.tf`**: Define los recursos EC2 del módulo.
+    *   **`modules/ec2/outputs.tf`**: Define las salidas del módulo EC2.
+    *   **`modules/ec2/variables.tf`**: Define las variables de entrada para el módulo EC2.
+    *   **`modules/security_groups/main.tf`**: Define los recursos de Security Groups del módulo.
+    *   **`modules/security_groups/outputs.tf`**: Define las salidas del módulo Security Groups.
+    *   **`modules/security_groups/variables.tf`**: Define las variables de entrada para el módulo Security Groups.
+    *   **`modules/vpc/main.tf`**: Define los recursos de VPC, subredes, e Internet Gateway del módulo.
+    *   **`modules/vpc/outputs.tf`**: Define las salidas del módulo VPC (como `vpc_id` y `public_subnet_ids`).
+    *   **`modules/vpc/variables.tf`**: Define las variables de entrada para el módulo VPC.
