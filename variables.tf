@@ -24,11 +24,9 @@ variable "ec2_specs" {
 variable "access_key" {
   description = "Access key"
   type = string
-  sensitive = true
 }
 
 variable "secret_key" {
   description = "Secret key"
   type = string
-  sensitive = true
 }
