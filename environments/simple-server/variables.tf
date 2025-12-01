@@ -16,7 +16,7 @@ variable "myTagsGeneric" {
     "Name"        = "MyEC2"
     "name"        = "myEC2"
     "IaC"         = "Terraform"
-    "IaC_version" = "v1.12.2"
+    "IaC_version" = "v1.14.0"
     "cloud"       = "aws"
     "owner"       = "Rafiko"
   }
