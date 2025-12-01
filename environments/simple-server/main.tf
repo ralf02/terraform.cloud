@@ -12,7 +12,7 @@ module "simple_server_ec2" {
 
     myTagsGeneric = var.myTagsGeneric
     ec2_specs     = var.ec2_specs
-    key_name      = "MyKeys"
+    key_name      = var.key_name
     subnet_id     = element(module.simple_server_vpc.public_subnet_ids, 0)
     vpc_security_group_ids = [module.simple_server_sg.security_group_id]
 }

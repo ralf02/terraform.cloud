@@ -33,4 +33,5 @@ variable "ec2_specs" {
 variable "key_name" {
   description = "Name of the EC2 Key Pair to use."
   type        = string
+  default     = "MyKeys"
 }
