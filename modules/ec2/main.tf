@@ -1,7 +1,8 @@
 resource "aws_instance" "MyEC2" {
     ami = var.ec2_specs.ami
     instance_type = var.ec2_specs.type
-    key_name = data.aws_key_pair.mykey01.key_name
+    key_name = var.key_name
+    subnet_id = var.subnet_id
 
     vpc_security_group_ids = var.vpc_security_group_ids
 
