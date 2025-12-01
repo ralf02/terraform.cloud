@@ -29,13 +29,3 @@ variable "ec2_specs" {
     "type"  = "t2.micro"
   }
 }
-
-variable "key_name" {
-  description = "Name of the EC2 Key Pair to use."
-  type        = string
-}
-
-variable "subnet_id" {
-  description = "The ID of the subnet to launch the instance into."
-  type        = string
-}
